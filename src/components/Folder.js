@@ -25,7 +25,7 @@ function Folder({ explorer, handleInsertNode }) {
    const onAddFolder = (e) => {
       if (e.keyCode === 13 && e.target.value) {
          handleInsertNode(explorer.id, e.target.value, showInput.isFolder);
-         setShowInput({...showInput, visible:false})
+         setShowInput({ ...showInput, visible: false })
       }
    }
 
@@ -36,15 +36,15 @@ function Folder({ explorer, handleInsertNode }) {
          <div style={{ marginTop: "5px" }}>
             <div className='folder' onClick={() => setExpand(!expand)}>
                <div>
-                  <img src={FolderIcon} alt='' /> 
-                     {explorer.name}
-                  </div>
+                  <img src={FolderIcon} alt='' />
+                  {explorer.name}
+               </div>
                <div>
-                  <button onClick={(e) => handleNewFolder(e, true)}>
-                     <img src={FolderAdd} alt='' />
-                  </button>
                   <button onClick={(e) => handleNewFolder(e, false)}>
                      <img src={FileAdd} alt='' />
+                  </button>
+                  <button onClick={(e) => handleNewFolder(e, true)}>
+                     <img src={FolderAdd} alt='' />
                   </button>
                </div>
             </div>
@@ -53,26 +53,26 @@ function Folder({ explorer, handleInsertNode }) {
                showInput.visible && (
                   <div className='inputContainer'>
                      <div>{showInput.isFolder ? <img src={FolderIcon} alt='' /> : "📄"}</div>
-                     <input 
+                     <input
                         type='text'
                         autoFocus
                         onKeyDown={onAddFolder}
-                        onBlur={() => setShowInput({...showInput, visible: false})}
-                        className='inputContainer__input' 
+                        onBlur={() => setShowInput({ ...showInput, visible: false })}
+                        className='inputContainer__input'
                      />
                   </div>
                )
             }
 
-            
-            <div style={{display: expand ? "block" : "none", paddingLeft: 25}}>
+
+            <div style={{ display: expand ? "block" : "none", paddingLeft: 25 }}>
                {
                   explorer.items.map((exp) => {
-                     return(
-                        <Folder 
+                     return (
+                        <Folder
                            explorer={exp}
                            handleInsertNode={handleInsertNode}
-                           key={exp.id} 
+                           key={exp.id}
                         />
                      )
                   })
@@ -84,7 +84,7 @@ function Folder({ explorer, handleInsertNode }) {
 
    // Show File 
    else {
-      return(
+      return (
          <span className='file'>📄 {explorer.name}</span>
       )
    }
