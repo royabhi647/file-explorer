@@ -20,4 +20,7 @@ To get the project up and running on your local machine, follow these steps:
 
    ```bash
    git clone https://github.com/royabhi647/file-explorer.git
-   cd your-project-folder
+   cd file-explorer
+
+2. **Start the development server**
+   <pre>npm start</pre>
