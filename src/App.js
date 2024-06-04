@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import explorer from "./data/folderData";
+import explorer from "./data/config";
 import Folder from "./components/Folder";
 import useTraverseTree from "./hooks/use-traverse-tree";
 function App() {
